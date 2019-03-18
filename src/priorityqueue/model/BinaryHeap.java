@@ -1,7 +1,7 @@
-package binaryheap.model;
+package priorityqueue.model;
 
 /**
- * 二叉堆(底层完全树)
+ * 二叉堆(底层完全树,数组形式实现)
  *
  * @author :web
  * @date : 2019/3/13
@@ -28,6 +28,7 @@ public class BinaryHeap<T extends Comparable<? super T>> {
     @SuppressWarnings("unchecked")
     public BinaryHeap(T[] items) {
         currentSize = items.length;
+        //等价于 (Comparable[] array = (Comparable[]) new Comparable[10];
         array = (T[]) new Comparable[(currentSize + 2) * 11 / 10];
         int i = 1;
         for (T item : items) {
@@ -37,7 +38,7 @@ public class BinaryHeap<T extends Comparable<? super T>> {
     }
 
     /**
-     * 为任意的一个数组建立一个排序的堆.时间复杂度O(n)
+     * 将无序的数组建立成有序的二叉堆.时间复杂度O(n)
      */
     private void buildHeap() {
         for (int i = currentSize / 2; i > 0; i--)
@@ -61,12 +62,11 @@ public class BinaryHeap<T extends Comparable<? super T>> {
         }
         array[hole] = x;
     }
+
     @SuppressWarnings("unchecked")
     private void enlargeArray(int size) {
         T[] newArray = (T[]) new Comparable[size];
-        for(int i=0;i<array.length;i++){
-            newArray[i] = array[i];
-        }
+        System.arraycopy(array, 0, newArray, 0, array.length);
         array = newArray;
     }
 

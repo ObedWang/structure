@@ -1,12 +1,12 @@
-package binaryheap.practice;
+package priority.practice;
 
-import binaryheap.model.BinaryHeap;
+import priorityqueue.model.BinaryHeap;
 
 /**
  * @author :web
  * @date : 2019/3/13
  */
-public class Demo {
+public class BinaryHeapDemo {
     public static void main(String[] args) {
         BinaryHeap<Integer> integerBinaryHeap = new BinaryHeap<>();
         for(int i=10;i>0;i--)
